@@ -51,12 +51,12 @@ while(loop_varGL1 == 0):
 loop_varGL2 = 0
 counterGL1 = 0
 while(loop_varGL2 == 0):
-    print("\nWhat would you like to do?\n'Create Quest', 'Show Quests', 'Complete Quest Task', 'Complete Quest', 'Save', 'Exit'")
-    print("'Show Stats', 'Show Completed Quests'")
+    print("\nWhat would you like to do?\n'1. Create Quest', '2. Show Quests', '3. Complete Quest Task', '4. Complete Quest', '5. Save', '6 .Exit'")
+    print("'7. Show Stats', '8. Show Completed Quests'")
     option2 = input()
-    if (option2 == 'Exit'):
+    if (option2 == 'Exit' or option2 == '6'):
         loop_varGL2 = 1
-    elif (option2 == 'Create Quest'):
+    elif (option2 == 'Create Quest' or option2 == '1'):
         QuestList.append(Quest.Quest(C1))
         print("How many tasks in this quest?")
         TNum = input()
@@ -65,13 +65,13 @@ while(loop_varGL2 == 0):
             QuestList[counterGL1].addTask()
         QuestList[counterGL1].addReward()
         counterGL1 += 1
-    elif (option2 == 'Show Quests'):
+    elif (option2 == 'Show Quests' or option2 == '2'):
         print("")
         for i,quest in enumerate(QuestList):
             if (not quest.isCompleted()):
                 print("{i} ".format(i=i + 1) + quest.questDescription())
                 quest.showTasks()
-    elif (option2 == 'Complete Quest Task'):
+    elif (option2 == 'Complete Quest Task' or option2 == '3'):
         print("Enter Quest Number:")
         QNum = input()
         QNum = int(QNum) - 1
@@ -79,20 +79,21 @@ while(loop_varGL2 == 0):
         TNum = input()
         TNum = int(TNum)
         QuestList[QNum].completeTask(TNum)
-    elif (option2 == 'Complete Quest'):
+    elif (option2 == 'Complete Quest' or option2 == '4'):
         print("Enter Quest Number")
         QNum = input()
         QNum = int(QNum) - 1
         QuestList[QNum].completeQuest()
-    elif (option2 == 'Show Stats'):
+    elif (option2 == 'Show Stats' or option2 == '7'):
         C1.stats()
-    elif (option2 == 'Show Completed Quests'):
+    elif (option2 == 'Show Completed Quests' or option2 == '8'):
         for i,quest in enumerate(QuestList):
             if (quest.isCompleted()):
                 print("{i} ".format(i=i + 1) + quest.questDescription())
                 quest.showTasks()
-    elif (option2 == 'Save'):
+    elif (option2 == 'Save' or option2 == '5'):
         print("Not implemented yet.")
+        #savefile = open("")
     else:
         print("Unrecognized command.")
     
