@@ -7,6 +7,9 @@
 # Quests should have the option to have tiers for consecutive completions.
 # Quests should have the option to give feats, exp, and buffs as rewards.
 
+
+# Deal with errors if experience isn't entered as an integer
+
 import Character
 import Task
 
@@ -17,6 +20,10 @@ class Quest:
         print("Enter a description of this quest:")
         self.description = input()
         self.tasks = []
+        self.isComp = False
+    
+    def questDescription(self):
+        return self.description
     
     def addTask(self):
         print("Add task by entering description:")
@@ -45,9 +52,12 @@ class Quest:
     def showTasks(self):
         for i,task in enumerate(self.tasks):
             if(task.isCompleted()):
-                print("{i} ".format(i = i) + "Completed: " + task.description)
+                print("    {i} ".format(i = i + 1) + "Complete:   " + task.taskDescription())
             else:
-                print("{i} ".format(i = i) + task.description)
+                print("    {i} ".format(i = i + 1) + "Incomplete: " + task.taskDescription())
+    
+    def isCompleted(self):
+        return self.isComp
     
     def completeQuest(self):
         completedTasks = 0
@@ -56,8 +66,13 @@ class Quest:
             numberOfTasks += 1
             if(task.isCompleted()):
                 completedTasks += 1
-                
+        
+        if (self.isComp == True):
+            print("You have already claimed this quest's reward.")
+            return
+        
         if (completedTasks == numberOfTasks):
+            self.isComp = True
             print(self.description)
             print("Congratulations you've completed this quest!")
             if (int(self.str_exp) > 0):

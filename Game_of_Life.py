@@ -13,14 +13,27 @@
 # Quests
 # As the main mode of interaction to the game is creating and completing quests, quests should
 # have a lot of style, function, and dynamic options.
+#
+# GUI
+# At some point I want to implement a GUI for this code but for now it is just via command line
+# in a bash shell. I'd like the GUI to have the look of a scroll, have tabs for character,
+# quests, and maybe other things like a map, inventory, and motivational quotes.
+
+# Errors to deal with:
+# Integer inputs not being integers.
+# Trying to complete a task that's already complete.
+# Trying to complete a quest that's already complete. (Done)
+# Trying to complete a task that doesn't exist.
+# Trying to complete a quest that doesn't exist.
 
 import Character
 import Quest
 
 print('Welcome to the Game of Life')
 print("Type 'Create' to create a character or 'Load' to load a character") 
-loop_var = 0
-while(loop_var == 0):
+QuestList = []
+loop_varGL1 = 0
+while(loop_varGL1 == 0):
     option1 = input()
     if (option1 == 'Create'):
         print("Name: ")
@@ -28,18 +41,58 @@ while(loop_var == 0):
         print("Age: ")
         age = input()
         C1 = Character.Character(name, age, 0, 0, 0, 0, 0, 0)
-        loop_var = 1
+        loop_varGL1 = 1
     elif (option1 == 'Load'):
         print("Load Character")
-        loop_var = 1
+        loop_varGL1 = 1
     else:
         print("Unrecognized command. Please type 'Create' or 'Load'")
 
-Q1 = Quest.Quest(C1)
-Q1.addTask()
-Q1.addTask()
-Q1.addReward()
-Q1.completeTask(1)
-Q1.showTasks()
-Q1.completeQuest()
-C1.stats()
+loop_varGL2 = 0
+counterGL1 = 0
+while(loop_varGL2 == 0):
+    print("\nWhat would you like to do?\n'Create Quest', 'Show Quests', 'Complete Quest Task', 'Complete Quest', 'Save', 'Exit'")
+    print("'Show Stats', 'Show Completed Quests'")
+    option2 = input()
+    if (option2 == 'Exit'):
+        loop_varGL2 = 1
+    elif (option2 == 'Create Quest'):
+        QuestList.append(Quest.Quest(C1))
+        print("How many tasks in this quest?")
+        TNum = input()
+        TNum = int(TNum)
+        for i in range(TNum):
+            QuestList[counterGL1].addTask()
+        QuestList[counterGL1].addReward()
+        counterGL1 += 1
+    elif (option2 == 'Show Quests'):
+        print("")
+        for i,quest in enumerate(QuestList):
+            if (not quest.isCompleted()):
+                print("{i} ".format(i=i + 1) + quest.questDescription())
+                quest.showTasks()
+    elif (option2 == 'Complete Quest Task'):
+        print("Enter Quest Number:")
+        QNum = input()
+        QNum = int(QNum) - 1
+        print("Enter Task Number")
+        TNum = input()
+        TNum = int(TNum)
+        QuestList[QNum].completeTask(TNum)
+    elif (option2 == 'Complete Quest'):
+        print("Enter Quest Number")
+        QNum = input()
+        QNum = int(QNum) - 1
+        QuestList[QNum].completeQuest()
+    elif (option2 == 'Show Stats'):
+        C1.stats()
+    elif (option2 == 'Show Completed Quests'):
+        for i,quest in enumerate(QuestList):
+            if (quest.isCompleted()):
+                print("{i} ".format(i=i + 1) + quest.questDescription())
+                quest.showTasks()
+    elif (option2 == 'Save'):
+        print("Not implemented yet.")
+    else:
+        print("Unrecognized command.")
+    

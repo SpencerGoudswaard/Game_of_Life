@@ -11,3 +11,6 @@ class Task:
         
     def isCompleted(self):
         return self.completed
+        
+    def taskDescription(self):
+        return self.description
