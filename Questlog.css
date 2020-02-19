@@ -1,0 +1,17 @@
+h1 {
+	border-style: solid;
+	border-color: blue;
+	margin-right: 610px;	
+}
+
+.CompleteQuest {
+	border-style: solid;
+	border-color: black;
+	margin-right: 600px;
+}
+
+#NewQuest{
+	border-style: solid;
+	border-color: black;
+	margin-right: 625px;
+}

@@ -29,19 +29,6 @@
 import Character
 import Quest
 
-def createQuest(C1, counterGL1):
-    
-    # Needs to edit the Questlog.html file to display this quest.
-    
-    QuestList.append(Quest.Quest(C1))
-    print("How many tasks in this quest?")
-    TNum = input()
-    TNum = int(TNum)
-    for i in range(TNum):
-        QuestList[counterGL1].addTask()
-    QuestList[counterGL1].addReward()
-    counterGL1 += 1
-    return counterGL1
 
 print('Welcome to the Game of Life')
 print("Type 'Create' to create a character or 'Load' to load a character")
@@ -106,3 +93,13 @@ while(loop_varGL2 == 0):
         print("Unrecognized command.")
     
     
+def createQuest(Character.Character() C1, int counterGL1):
+    QuestList.append(Quest.Quest(C1))
+    print("How many tasks in this quest?")
+    TNum = input()
+    TNum = int(TNum)
+    for i in range(TNum):
+        QuestList[counterGL1].addTask()
+    QuestList[counterGL1].addReward()
+    counterGL1 += 1
+    return counterGL1

@@ -1,0 +1,11 @@
+fhtml = open("Questlog.html", mode = "r")
+test = open("writetest.html", mode = "w")
+# original = fhtml.read()
+# print(original)
+for line in fhtml:
+    # print(line, end = "")
+    if(line == '	<ul id="QuestList">'):
+        test.write("This worked\n")
+    test.write(line)
+test.close()
+fhtml.close()

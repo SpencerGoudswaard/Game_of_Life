@@ -57,8 +57,7 @@ Features:
 <body>
 	<h1>QuestLog</h1>
 	
-	<button onclick="href=test.py", id="NewQuest">Create New Quest</button> <hr>
-    
+	<p id="NewQuest">Create New Quest</p>
 	
 	<ul id="QuestList">
 		<li>Quest 1</li>

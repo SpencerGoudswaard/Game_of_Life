@@ -30,9 +30,6 @@ import Character
 import Quest
 
 def createQuest(C1, counterGL1):
-    
-    # Needs to edit the Questlog.html file to display this quest.
-    
     QuestList.append(Quest.Quest(C1))
     print("How many tasks in this quest?")
     TNum = input()

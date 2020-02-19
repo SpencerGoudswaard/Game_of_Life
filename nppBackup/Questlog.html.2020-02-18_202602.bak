@@ -57,8 +57,14 @@ Features:
 <body>
 	<h1>QuestLog</h1>
 	
-	<button onclick="href=test.py", id="NewQuest">Create New Quest</button> <hr>
-    
+	<p id="NewQuest">Create New Quest</p>
+	
+	<button onclick="location.href='{% url 'script' %}'">Execute Script</button> <hr>
+        {% if data %}
+        
+        {{data | safe}}
+
+        {% endif %}
 	
 	<ul id="QuestList">
 		<li>Quest 1</li>

@@ -1,0 +1,17 @@
+fhtml = open("Questlog.html", mode = "r")
+test = open("writetest.html", mode = "w")
+# original = fhtml.read()
+# print(original)
+for line in fhtml:
+    # print(line, end = "")
+    test.write(line)
+    if(line == '	<ul id="QuestList">\n'):
+        test.write("\t\t<li>Quest 1</li>\n")
+        test.write("\t\t<ul>\n")
+        test.write("\t\t\t<li>Task 1</li>\n")
+        test.write("\t\t\t<li>Task 2</li>\n")
+        test.write("\t\t\t<li>Task 3</li>\n")
+        test.write("\t\t</ul>\n")
+        test.write("\t\t<p class='CompleteQuest'>Complete Quest</p>\n")
+test.close()
+#fhtml.close()
