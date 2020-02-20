@@ -1,0 +1,8 @@
+from flask import render\_template()
+from app import app
+
+@app.route('/')
+@app.route('/index')
+def index():
+    user = {'username': 'Spencer'}
+    return render_template('Questlog.html', title='Home', user=user)

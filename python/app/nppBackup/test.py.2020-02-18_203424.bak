@@ -1,0 +1,6 @@
+fhtml = open("Questlog.html", mode = "r")
+original = fhtml.read()
+# print(original)
+for line in original:
+    print(line, end = "")
+fhtml.close()

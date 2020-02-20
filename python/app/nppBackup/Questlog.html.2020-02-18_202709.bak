@@ -51,14 +51,20 @@ Features:
 <!-- Put back end code in the head and front end in the body -->
 <head>
 <title>QuestLog</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='css/Questlog.css') }}">
+<link rel="stylesheet" type="text/css" href="Questlog.css">
 </head>	
 
 <body>
 	<h1>QuestLog</h1>
 	
-	<button onclick="href=test.py" id="NewQuest">Create New Quest</button> <hr>
-    
+	<p id="NewQuest">Create New Quest</p>
+	
+	<button onclick="href=/Questlog.py", id="NewQuest">Create New Quest</button> <hr>
+        {% if data %}
+        
+        {{data | safe}}
+
+        {% endif %}
 	
 	<ul id="QuestList">
 		<li>Quest 1</li>

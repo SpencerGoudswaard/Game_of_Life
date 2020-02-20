@@ -51,7 +51,7 @@ Features:
 <!-- Put back end code in the head and front end in the body -->
 <head>
 <title>QuestLog</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='css/Questlog.css') }}">
+<link rel="stylesheet" href="Questlog.css">
 </head>	
 
 <body>

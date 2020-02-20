@@ -1,0 +1,4 @@
+fhtml = open("Questlog.html", mode = "r")
+original = fhtml.readline()
+print(original)
+fhtml.close()

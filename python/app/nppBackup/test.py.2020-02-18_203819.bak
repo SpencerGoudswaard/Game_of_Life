@@ -1,0 +1,9 @@
+fhtml = open("Questlog.html", mode = "r")
+test = open("writetest.html", mode = "w")
+original = fhtml.read()
+# print(original)
+for line in original:
+    # print(line, end = "")
+    test.write(line)
+test.close()
+fhtml.close()
