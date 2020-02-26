@@ -10,8 +10,8 @@ h1 {
 	margin-right: 600px;
 }
 
-#CreateQuest{
+/* #NewQuest{
 	border-style: solid;
 	border-color: black;
 	margin-right: 625px;
-}
+} */

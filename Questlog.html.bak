@@ -16,6 +16,16 @@
 	
 	<p id = "Test">Test Space</p>
 	
+	<form>
+	Character Name:
+	<input type="text"></input>
+	Age:
+	<input type="text"></input>
+	
+	<input type="submit">Create</input>
+	
+	</form>
+	
 	<h1>QuestLog</h1>
 	
 	<button type="button" onclick="createQuest()" id="CreateQuest">Create New Quest</button> <hr>
