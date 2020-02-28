@@ -12,19 +12,10 @@
 <body>
 	
 	<button type="button" onclick="createCharacter()" id="CreateCharacter">Create New Character</button>
+	
 	<button type="button" onclick="loadCharacter()" id="LoadCharacter">Load Character</button>
 	
-	<p id = "Test">Test Space</p>
-	
-	<form>
-	Character Name:
-	<input type="text"></input>
-	Age:
-	<input type="text"></input>
-	
-	<input type="submit">Create</input>
-	
-	</form>
+	<p id = "Test">Turn this into a form.</p>
 	
 	<h1>QuestLog</h1>
 	
@@ -33,27 +24,7 @@
 	
 	
 	<ul id="QuestList">
-		<li>Quest 1</li>
-		<ul>
-			<li>Task 1</li>
-			<li>Task 2</li>
-			<li>Task 3</li>
-		</ul>
-		<p class="CompleteQuest">Complete Quest</p>
-		<li>Quest 2</li>
-		<ul>
-			<li>Task 1</li>
-			<li>Task 2</li>
-			<li>Task 3</li>
-		</ul>
-		<p class="CompleteQuest">Complete Quest</p>
-		<li>Quest 3</li>
-		<ul>
-			<li>Task 1</li>
-			<li>Task 2</li>
-			<li>Task 3</li>
-		</ul>
-		<p class="CompleteQuest">Complete Quest</p>
+		
 	</ul>
 	
 
