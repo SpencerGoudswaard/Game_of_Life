@@ -1,27 +1,57 @@
 <!DOCTYPE html>
 <html>
 
-<!-- Put back end code in the head and front end in the body -->
+
 <head>
 <title>QuestLog</title>
 <link rel="stylesheet" href="Questlog.css">
 <script src="Questlog.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+
+
 </head>
 
 
 <body>
 	
-	<button type="button" onclick="createCharacter()" id="CreateCharacter">Create New Character</button>
-	
-	<button type="button" onclick="loadCharacter()" id="LoadCharacter">Load Character</button>
-	
-	<p id = "Test">Turn this into a form.</p>
-	
 	<h1>QuestLog</h1>
 	
-	<button type="button" onclick="createQuest()" id="CreateQuest">Create New Quest</button> <hr>
+	<div id = "User">
+	<button type="button" onclick="createCharacter()" id="CreateCharacter">Create New Character</button>
+	<button type="button" onclick="loadCharacter()" id="LoadCharacter">Load Character</button>
+	<p id = "FormSpot"></p>
+	</div>
 	
+	<button type="button" onclick="openForm()" id="OpenForm">Create New Quest</button>
 	
+	<div class="Form-popup" id="myForm">
+		<form class="Form-container">
+			
+			<h1> New Quest </h1>
+			<label for="description"><b>Quest Description</b></label>
+			<input type="text" name="description">
+			<label for="task"><b>Task Description</b></label>
+			<input type="text" name="task">
+			Rewards
+			<label for="fitExp"><b>Fitness Exp</b></label>
+			<input type="int" name="fitExp">
+			<label for="conExp"><b>Constitution Exp</b></label>
+			<input type="int" name="conExp">
+			<label for="wisExp"><b>Wisdom Exp</b></label>
+			<input type="int" name="wisExp">
+			<label for="intExp"><b>Intelligence Exp</b></label>
+			<input type="int" name="intExp">
+			<label for="chaExp"><b>Charisma Exp</b></label>
+			<input type="int" name="chaExp">
+			<label for="explExp"><b>Exploration Exp</b></label>
+			<input type="int" name="explExp">
+			<label for="inspExp"><b>Inspiration Exp</b></label>
+			<input type="int" name="inspExp">
+			<button type="button" onclick="createQuest()" id="CreateQuest">Create New Quest</button>
+			<button type="button" onclick="closeForm()" id="btn cancel">Cancel</button>
+			
+		</form>
+	</div>
 	
 	<ul id="QuestList">
 		

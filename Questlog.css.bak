@@ -1,7 +1,24 @@
-h1 {
-	border-style: solid;
-	border-color: blue;
-	margin-right: 610px;	
+body {
+	background-image: url("ScrollTexture.jpg");
+	color: rgb(40, 40, 40);
+	font-weight: bold;
+	-webkit-text-stroke: 0.5px rgba(0,0,0, 0.8);
+}
+
+h1{
+	font-family: 'Tangerine', serif;
+	font-size: 48px;
+	color: white;
+	text-shadow: 2px 2px black;
+	-webkit-text-stroke: 0px ;	
+}
+
+#User{
+	font-family: 'Tangerine', serif;
+	font-size: 24px;
+	color: white;
+	text-shadow: 1px 1px black;
+	-webkit-text-stroke: 0px ;	
 }
 
 .CompleteQuest {
@@ -10,8 +27,49 @@ h1 {
 	margin-right: 600px;
 }
 
-/* #NewQuest{
-	border-style: solid;
-	border-color: black;
-	margin-right: 625px;
-} */
+.Form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: grey;
+}
+
+.Form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+#OpenForm {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+.CreateQuest {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+.Form-container input[type=text] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}

@@ -1,0 +1,27 @@
+body {
+	background-image: url("ScrollTexture.jpg");
+	color: rgb(40, 40, 40);
+	font-weight: bold;
+	-webkit-text-stroke: 0.5px rgba(0,0,0, 0.8);
+}
+
+h1{
+	font-family: 'Tangerine', serif;
+	font-size: 48px;
+	color: white;
+	text-shadow: 2px 2px black;
+	-webkit-text-stroke: 0px ;
+	
+}
+
+.CompleteQuest {
+	border-style: solid;
+	border-color: black;
+	margin-right: 600px;
+}
+
+#CreateQuest{
+	border-style: solid;
+	border-color: black;
+	margin-right: 625px;
+}
