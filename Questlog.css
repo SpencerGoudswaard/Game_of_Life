@@ -21,13 +21,7 @@ h1{
 	-webkit-text-stroke: 0px ;	
 }
 
-.CompleteQuest {
-	border-style: solid;
-	border-color: black;
-	margin-right: 600px;
-}
-
-.Form-container {
+.CreateQuestContainer {
   max-width: 300px;
   padding: 10px;
   background-color: grey;
@@ -64,4 +58,14 @@ h1{
   width: 100%;
   margin-bottom:10px;
   opacity: 0.8;
+}
+
+.TaskList {
+	font-family: 'Tangerine';
+	font-size: 24px;
+}
+
+.CompleteQuest {
+	border-style: solid;
+	border-color: black;
 }

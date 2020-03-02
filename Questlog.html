@@ -25,28 +25,31 @@
 	<button type="button" onclick="openForm()" id="OpenForm">Create New Quest</button>
 	
 	<div class="Form-popup" id="myForm">
-		<form class="Form-container">
+		<form id = "CreateQuestContainer" class="CreateQuestContainer">
 			
 			<h1> New Quest </h1>
 			<label for="description"><b>Quest Description</b></label>
-			<input type="text" name="description">
-			<label for="task"><b>Task Description</b></label>
-			<input type="text" name="task">
+			<input type="text" id="description"></input>
+			<div id='Tasks'>
+			<div id='break0'></div>
+			</div>
+			<button type='button' onclick='addTask()' id='AddTask'>Add Task</button>
+			<br>
 			Rewards <br>
 			<label for="fitExp"><b>Fitness Exp</b></label>
-			<input type="int" name="fitExp">
+			<input type="int" id="fitExp">
 			<label for="conExp"><b>Constitution Exp</b></label>
-			<input type="int" name="conExp">
+			<input type="int" id="conExp">
 			<label for="wisExp"><b>Wisdom Exp</b></label>
-			<input type="int" name="wisExp">
+			<input type="int" id="wisExp">
 			<label for="intExp"><b>Intelligence Exp</b></label>
-			<input type="int" name="intExp">
+			<input type="int" id="intExp">
 			<label for="chaExp"><b>Charisma Exp</b></label>
-			<input type="int" name="chaExp">
+			<input type="int" id="chaExp">
 			<label for="explExp"><b>Exploration Exp</b></label>
-			<input type="int" name="explExp">
-			<label for="inspExp"><b>Inspiration Exp</b></label>
-			<input type="int" name="inspExp">
+			<input type="int" id="explExp">
+			<label for="insExp"><b>Inspiration Exp</b></label>
+			<input type="int" id="insExp">
 			<button type="button" onclick="createQuest()" id="CreateQuest">Create New Quest</button>
 			<button type="button" onclick="closeForm()" id="btn cancel">Cancel</button>
 			
@@ -54,7 +57,6 @@
 	</div>
 	
 	<ul id="QuestList">
-		
 	</ul>
 	
 

@@ -1,5 +1,5 @@
 var numQuests = 0;
-var taskNum = new Array();
+var taskNum = 0;
 var Quests = new Array();
 
 /* This function creates a new Quest.
@@ -9,33 +9,62 @@ var Quests = new Array();
 function createQuest(){
 	numQuests += 1;
 	taskNum[numQuests] = 1;
-	var currentList = document.getElementById("QuestList").innerHTML
-	document.getElementById("QuestList").innerHTML = currentList + "<li id=Quest"+ numQuests +">Quest "+ numQuests +"</li>";
+	var currentList = document.getElementById("QuestList").innerHTML;
+	
+	/* Gets quest info from user form. */
+	var description = document.getElementById("description").value;
+	var FitExp = document.getElementById("fitExp").value;
+	var ConExp = document.getElementById("conExp").value;
+	var WisExp = document.getElementById("wisExp").value;
+	var IntExp = document.getElementById("intExp").value;
+	var ChaExp = document.getElementById("chaExp").value;
+	var ExplExp = document.getElementById("explExp").value;
+	var InsExp = document.getElementById("insExp").value;
+	
+	/* Adds new quest to the Quests array */
+	Quests.push(new Quest(description, numQuests, 1, FitExp, ConExp, WisExp, IntExp, ChaExp, ExplExp, InsExp))
+
+	/* Prints the quest to the QuestLog */
+	document.getElementById("QuestList").innerHTML = currentList + "<li id=Quest"+ numQuests +">"+ Quests[numQuests-1].description +"</li>";
+	
+	/* Prints the tasks to the QuestLog */
 	var currentQuest = document.getElementById("Quest"+ numQuests).innerHTML
-	document.getElementById("Quest"+ numQuests).innerHTML = currentQuest + "\n<ul id = taskList"+ numQuests +">\n<input type='checkbox' name='task' value='task1'>Task 1</input><br></ul>\n<button type='button' onclick='addTask("+numQuests+")' id='AddTask"+ numQuests +"'>Add Task</button>\n<p class='CompleteQuest'>Complete Quest</p>\n";
+	document.getElementById("Quest"+ numQuests).innerHTML = currentQuest + "\n<ul class ='TaskList' id = TaskList"+ numQuests +">\n</ul><button type='button' class='CompleteQuest'>Complete Quest</button>\n"
+	
+	/* document.getElementById("Quest"+ numQuests).innerHTML = currentQuest + "\n<ul class ='TaskList' id = TaskList"+ numQuests +">\n<input type='checkbox' name='task' value='task1'>Task 1</input><br></ul>\n<button type='button' onclick='addTask("+numQuests+")' id='AddTask"+ numQuests +"'>Add Task</button>\n<button type='button' class='CompleteQuest'>Complete Quest</button>\n"; */
+	document.getElementById("CreateQuestContainer").reset();
+	var currentTask = document.getElementById("Tasks").innerHTML = "<div id='break0'></div>";
+	taskNum = 0;
 	
 }
 
-/* Creating a Quest object. */
-function Quest(description, questNum, numTasks, FitExp = 0, ConExp = 0, WisExp = 0, IntExp = 0, ChaExp = 0, ExplExp = 0, InspExp = 0){
+/* Quest object */
+function Quest(description, questNum, taskList, FitExp, ConExp, WisExp, IntExp, ChaExp, ExplExp, InsExp){
+	this.numTasks = 0;
 	this.description = description;
 	this.questNum = questNum;
-	this.numTasks = numTasks;
+	this.taskList = taskList;
+	this.addTask = function (taskDesc){
+		taskList.push(taskDesc);
+		this.numTasks += 1;
+	}
 	this.FitExp = FitExp;
 	this.ConExp = ConExp;
 	this.WisExp = WisExp;
 	this.IntExp = IntExp;
 	this.ChaExp = ChaExp;
 	this.ExplExp = ExplExp;
-	this.InspExp = InspExp;
+	this.InsExp = InsExp;
 }
 
 /* This function will eventually be replaced by a method in the Quest object. */
-function addTask(questNum){
-	taskNum[questNum] += 1;
-	var currentTask = document.getElementById("taskList"+ questNum).innerHTML
-	currentTask = document.getElementById("taskList"+ questNum).innerHTML = currentTask + "<input type='checkbox' name='task' value='task"+taskNum[questNum]+"'>Task "+taskNum[questNum]+"</input><br>";
+function addTask(){
+	taskNum += 1;
+	var currentTask = document.getElementById("Tasks").innerHTML
+	var tempTaskString = "<label for='task"+ taskNum +"'><b>Task "+ taskNum +"</b></label>\n<input type='text' id='task"+ taskNum +"'><br id='break"+ taskNum +"'>"
+	document.getElementById("break"+(taskNum-1)).insertAdjacentHTML("afterend", tempTaskString);
 }
+
 
 /* This function will eventually be replaced by a method in the Quest object. */
 /* function completeQuest(var questNum) {
