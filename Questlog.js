@@ -20,37 +20,63 @@ function createQuest(){
 	var ChaExp = document.getElementById("chaExp").value;
 	var ExplExp = document.getElementById("explExp").value;
 	var InsExp = document.getElementById("insExp").value;
+	/* -------------------------------------------------- */
 	
+	/* Deals with empty description */
 	if (!description){
 		description = "<br>";
 	}
+	/* -------------------------------------------------- */
 	
 	/* Adds new quest to the Quests array */
-	Quests.push(new Quest(description, numQuests, 1, FitExp, ConExp, WisExp, IntExp, ChaExp, ExplExp, InsExp))
+	Quests.push(new Quest(description, numQuests, new Array(), FitExp, ConExp, WisExp, IntExp, ChaExp, ExplExp, InsExp))
+	/* -------------------------------------------------- */
 
 	/* Prints the quest to the QuestLog */
 	document.getElementById("QuestList").innerHTML = currentList + "<li id=Quest"+ numQuests +">"+ Quests[numQuests-1].description +"</li>";
+	/* -------------------------------------------------- */
 	
 	/* Creates the task list */
-	var currentQuest = document.getElementById("Quest"+ numQuests).innerHTML
-	document.getElementById("Quest"+ numQuests).innerHTML = currentQuest + "\n<ul class ='TaskList' id = TaskList"+ numQuests +">\n"
+	var currentQuest = document.getElementById("Quest"+ numQuests).innerHTML;
+	document.getElementById("Quest"+ numQuests).innerHTML = currentQuest + "\n<ul class ='TaskList' id = TaskList"+ numQuests +">\n";
+	/* -------------------------------------------------- */
 	
 	/* Prints the tasks to the QuestLog */
 	var i;
 	for (i = 0; i < taskNum; i++){
 		var taskDesc = document.getElementById("task"+(i+1)).value;
-		var currentQuest = document.getElementById("Quest"+ numQuests).innerHTML
-		document.getElementById("Quest"+ numQuests).innerHTML = currentQuest + "<input type = 'checkbox' name='task"+(i+1)+"' value='task"+(i+1)+"'>"+taskDesc+"</input><br>"
+		Quests[numQuests-1].addTask(taskDesc);
+		var currentQuest = document.getElementById("Quest"+ numQuests).innerHTML;
+		document.getElementById("Quest"+ numQuests).innerHTML = currentQuest + "<input type = 'checkbox' name='task"+(i+1)+"' value='task"+(i+1)+"'>"+Quests[numQuests-1].taskList[i]+"</input><br>";
 	}
+	/* -------------------------------------------------- */
 	
 	/* Ends the task list and adds the 'complete quest' button */
-	var currentQuest = document.getElementById("Quest"+ numQuests).innerHTML
-	document.getElementById("Quest"+ numQuests).innerHTML = currentQuest + "</ul><button type='button' class='CompleteQuest'>Complete Quest</button>\n"
+	var currentQuest = document.getElementById("Quest"+ numQuests).innerHTML;
+	document.getElementById("Quest"+ numQuests).innerHTML = currentQuest + "</ul><button type='button' class='CompleteQuest'>Complete Quest</button>\n";
+	
+	/* -------------------------------------------------- */
+	
+	/* Prints Experience Rewards to the QuestLog */
+	var a = new Array();
+	var b = new Array();
+	a.push(FitExp); a.push(ConExp); a.push(WisExp); a.push(IntExp); a.push(ChaExp); a.push(ExplExp);
+	b.push('Fitness'); b.push('Constitution'); b.push('Wisdom'); b.push('Intelligence'); b.push('Charisma'); b.push('Exploration'); b.push('Inspiration');
+	a.push(InsExp);
+	for (i = 0; i < 7; i++){
+		var currentQuest = document.getElementById("Quest"+ numQuests).innerHTML;
+		if (a[i] > 0){
+			document.getElementById("Quest"+ numQuests).innerHTML = currentQuest + "<div class='Experiences'>"+ b[i] + " Exp: " + a[i] + " </div>";
+		}
+	}
+	
+	/* -------------------------------------------------- */
 	
 	/* Resets the quest creation form */
 	document.getElementById("CreateQuestContainer").reset();
 	var currentTask = document.getElementById("Tasks").innerHTML = "<div id='break0'></div>";
 	taskNum = 0;
+	/* -------------------------------------------------- */
 	
 }
 

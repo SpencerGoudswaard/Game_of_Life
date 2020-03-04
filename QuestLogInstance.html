@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<!-- saved from url=(0062)file:///C:/Users/spenc/Desktop/Projects/Questlog/Questlog.html -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<html>
+
+
+<head>
 <title>QuestLog</title>
-<link rel="stylesheet" href="./QuestLogInstance_files/Questlog.css">
-<script src="./QuestLogInstance_files/Questlog.js.download"></script>
-<link rel="stylesheet" href="./QuestLogInstance_files/css">
+<link rel="stylesheet" href="Questlog.css">
+<script src="Questlog.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
 
 
 </head>
@@ -14,26 +16,24 @@
 	
 	<h1>QuestLog</h1>
 	
-	<div id="User">
+	<div id = "User">
 	<button type="button" onclick="createCharacter()" id="CreateCharacter">Create New Character</button>
 	<button type="button" onclick="loadCharacter()" id="LoadCharacter">Load Character</button>
-	<p id="FormSpot"></p>
+	<p id = "FormSpot"></p>
 	</div>
 	
 	<button type="button" onclick="openForm()" id="OpenForm">Create New Quest</button>
 	
-	<div class="Form-popup" id="myForm" style="display: block;">
-		<form id="CreateQuestContainer" class="CreateQuestContainer">
+	<div class="Form-popup" id="myForm">
+		<form id = "CreateQuestContainer" class="CreateQuestContainer">
 			
 			<h1> New Quest </h1>
 			<label for="description"><b>Quest Description</b></label>
-			<input type="text" id="description">
-			<div id="Tasks"><div id="break0"></div><label for="task1"><b>Task 1</b></label>
-<input type="text" id="task1"><br id="break1"><label for="task2"><b>Task 2</b></label>
-<input type="text" id="task2"><br id="break2"><label for="task3"><b>Task 3</b></label>
-<input type="text" id="task3"><br id="break3"><label for="task4"><b>Task 4</b></label>
-<input type="text" id="task4"><br id="break4"></div>
-			<button type="button" onclick="addTask()" id="AddTask">Add Task</button>
+			<input type="text" id="description"></input>
+			<div id='Tasks'>
+			<div id='break0'></div>
+			</div>
+			<button type='button' onclick='addTask()' id='AddTask'>Add Task</button>
 			<br>
 			Rewards <br>
 			<label for="fitExp"><b>Fitness Exp</b></label>
@@ -57,13 +57,7 @@
 	</div>
 	
 	<ul id="QuestList">
-	<li id="Quest1"><br>
-<ul class="TaskList" id="TaskList1">
-</ul><input type="checkbox" name="task1" value="task1">Task 1<br><input type="checkbox" name="task2" value="task2">Task 2<br><input type="checkbox" name="task3" value="task3">Task 3<br><button type="button" class="CompleteQuest">Complete Quest</button>
-</li><li id="Quest2"><br>
-<ul class="TaskList" id="TaskList2">
-</ul><button type="button" class="CompleteQuest">Complete Quest</button>
-</li></ul>
+	</ul>
 	
 
 
