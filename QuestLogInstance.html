@@ -28,13 +28,11 @@
 			<h1> New Quest </h1>
 			<label for="description"><b>Quest Description</b></label>
 			<input type="text" id="description">
-			<div id="Tasks">
-			<div id="task0"></div><br><label for="task1"><b>Task 1</b></label>
-<input type="text" id="task1"><br><label for="task2"><b>Task 2</b></label>
-<input type="text" id="task2">
-
-
-			</div>
+			<div id="Tasks"><div id="break0"></div><label for="task1"><b>Task 1</b></label>
+<input type="text" id="task1"><br id="break1"><label for="task2"><b>Task 2</b></label>
+<input type="text" id="task2"><br id="break2"><label for="task3"><b>Task 3</b></label>
+<input type="text" id="task3"><br id="break3"><label for="task4"><b>Task 4</b></label>
+<input type="text" id="task4"><br id="break4"></div>
 			<button type="button" onclick="addTask()" id="AddTask">Add Task</button>
 			<br>
 			Rewards <br>
@@ -59,7 +57,13 @@
 	</div>
 	
 	<ul id="QuestList">
-	</ul>
+	<li id="Quest1"><br>
+<ul class="TaskList" id="TaskList1">
+</ul><input type="checkbox" name="task1" value="task1">Task 1<br><input type="checkbox" name="task2" value="task2">Task 2<br><input type="checkbox" name="task3" value="task3">Task 3<br><button type="button" class="CompleteQuest">Complete Quest</button>
+</li><li id="Quest2"><br>
+<ul class="TaskList" id="TaskList2">
+</ul><button type="button" class="CompleteQuest">Complete Quest</button>
+</li></ul>
 	
 
 

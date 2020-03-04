@@ -21,19 +21,35 @@ function createQuest(){
 	var ExplExp = document.getElementById("explExp").value;
 	var InsExp = document.getElementById("insExp").value;
 	
+	if (!description){
+		description = "<br>";
+	}
+	
 	/* Adds new quest to the Quests array */
 	Quests.push(new Quest(description, numQuests, 1, FitExp, ConExp, WisExp, IntExp, ChaExp, ExplExp, InsExp))
 
 	/* Prints the quest to the QuestLog */
 	document.getElementById("QuestList").innerHTML = currentList + "<li id=Quest"+ numQuests +">"+ Quests[numQuests-1].description +"</li>";
 	
-	/* Prints the tasks to the QuestLog */
+	/* Creates the task list */
 	var currentQuest = document.getElementById("Quest"+ numQuests).innerHTML
-	document.getElementById("Quest"+ numQuests).innerHTML = currentQuest + "\n<ul class ='TaskList' id = TaskList"+ numQuests +">\n</ul><button type='button' class='CompleteQuest'>Complete Quest</button>\n"
+	document.getElementById("Quest"+ numQuests).innerHTML = currentQuest + "\n<ul class ='TaskList' id = TaskList"+ numQuests +">\n"
 	
-	/* document.getElementById("Quest"+ numQuests).innerHTML = currentQuest + "\n<ul class ='TaskList' id = TaskList"+ numQuests +">\n<input type='checkbox' name='task' value='task1'>Task 1</input><br></ul>\n<button type='button' onclick='addTask("+numQuests+")' id='AddTask"+ numQuests +"'>Add Task</button>\n<button type='button' class='CompleteQuest'>Complete Quest</button>\n"; */
+	/* Prints the tasks to the QuestLog */
+	var i;
+	for (i = 0; i < taskNum; i++){
+		var taskDesc = document.getElementById("break"+(i+1)).value;
+		var currentQuest = document.getElementById("Quest"+ numQuests).innerHTML
+		document.getElementById("Quest"+ numQuests).innerHTML = currentQuest + "<input type = 'checkbox' name='task"+(i+1)+"' value='task"+(i+1)+"'>"+taskDesc+"</input><br>"
+	}
+	
+	/* Ends the task list and adds the 'complete quest' button */
+	var currentQuest = document.getElementById("Quest"+ numQuests).innerHTML
+	document.getElementById("Quest"+ numQuests).innerHTML = currentQuest + "</ul><button type='button' class='CompleteQuest'>Complete Quest</button>\n"
+	
+	/* Resets the quest creation form */
 	document.getElementById("CreateQuestContainer").reset();
-	var currentTask = document.getElementById("Tasks").innerHTML = "";
+	var currentTask = document.getElementById("Tasks").innerHTML = "<div id='break0'></div>";
 	taskNum = 0;
 	
 }
