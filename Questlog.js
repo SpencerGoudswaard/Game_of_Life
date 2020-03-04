@@ -33,7 +33,7 @@ function createQuest(){
 	/* -------------------------------------------------- */
 
 	/* Prints the quest to the QuestLog */
-	document.getElementById("QuestList").innerHTML = currentList + "<li id=Quest"+ numQuests +">"+ Quests[numQuests-1].description +"</li>";
+	document.getElementById("QuestList").innerHTML = currentList + "<br><li class='Quest' id=Quest"+ numQuests +">"+ Quests[numQuests-1].description +"</li>";
 	/* -------------------------------------------------- */
 	
 	/* Creates the task list */
@@ -53,8 +53,7 @@ function createQuest(){
 	
 	/* Ends the task list and adds the 'complete quest' button */
 	var currentQuest = document.getElementById("Quest"+ numQuests).innerHTML;
-	document.getElementById("Quest"+ numQuests).innerHTML = currentQuest + "</ul><button type='button' class='CompleteQuest'>Complete Quest</button>\n";
-	
+	document.getElementById("Quest"+ numQuests).innerHTML = currentQuest + "</ul><button type='button' class='CompleteQuest' id='CompleteQuest"+numQuests+"' onclick='Quests["+(numQuests-1)+"].completeQuest()'>Complete Quest</button>\n";
 	/* -------------------------------------------------- */
 	
 	/* Prints Experience Rewards to the QuestLog */
@@ -97,6 +96,14 @@ function Quest(description, questNum, taskList, FitExp, ConExp, WisExp, IntExp, 
 	this.ChaExp = ChaExp;
 	this.ExplExp = ExplExp;
 	this.InsExp = InsExp;
+	this.completeQuest = function(){
+		this.isComplete = true;
+		document.getElementById("Quest" + this.questNum).style.color = "rgba(40, 40, 40, 0.3)";
+		document.getElementById("CompleteQuest" + this.questNum).innerHTML = "Completed!";
+		document.getElementById("CompleteQuest" + this.questNum).style.background = "rgba(40, 40, 40, 0)";
+		document.getElementById("CompleteQuest" + this.questNum).style.borderColor = "rgba(40, 40, 40, 0)";
+	}
+	this.isComplete = false;
 }
 
 /* This function will eventually be replaced by a method in the Quest object. */
@@ -135,9 +142,12 @@ function loadCharacter(){
 }
 
 function openForm() {
-  document.getElementById("myForm").style.display = "block";
+	document.getElementById("myForm").style.display = "block";
 }
 
 function closeForm() {
-  document.getElementById("myForm").style.display = "none";
+    document.getElementById("myForm").style.display = "none";
+    document.getElementById("CreateQuestContainer").reset();
+	var currentTask = document.getElementById("Tasks").innerHTML = "<div id='break0'></div>";
+	taskNum = 0;
 }
