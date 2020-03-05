@@ -24,6 +24,12 @@
 	
 	<button type="button" onclick="openForm()" id="OpenForm">Create New Quest</button>
 	
+	<?php
+		echo "Hello World!";
+		echo "Hello World!";
+		echo "Hello World!";
+	?>
+	
 	<div class="Form-popup" id="myForm">
 		<form id = "CreateQuestContainer" class="CreateQuestContainer">
 			
@@ -31,7 +37,7 @@
 			<label for="description"><b>Quest Description</b></label>
 			<input type="text" id="description"></input>
 			<div id='Tasks'>
-			<div id='task0'></div>
+			<div id='break0'></div>
 			</div>
 			<button type='button' onclick='addTask()' id='AddTask'>Add Task</button>
 			<br>
@@ -56,6 +62,7 @@
 		</form>
 	</div>
 	
+	<h2>Quests</h2>
 	<ul id="QuestList">
 	</ul>
 	
