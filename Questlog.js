@@ -123,22 +123,24 @@ function addTask(){
 
 
 function createCharacter(){
-	document.getElementById("FormSpot").innerHTML = "<form id='CreateCharacter' onsubmit='return false;'>\n\tCharacter Name:\n\t<input type='text' id='username'></input>\n\t<input type='submit' onclick='newCharacter()'></input>\n\t</form>";
+	document.getElementById("FormSpot").innerHTML = "<form id='CreateCharacter' onsubmit='return false;'>\n\tCharacter Name:\n\t<input type='text' id='username'></input>\n\t<input type='button' onclick='newCharacter()' value = 'Create'></input>\n\t</form>";
 }
 
 function newCharacter(){
 	var Username = document.getElementById("username").value;
-	document.getElementById("User").innerHTML = Username;
+	document.getElementById("User").innerHTML = "";
+	document.getElementById("UserName").innerHTML = Username;
 }
 
 function loadCharacterIn(){
 	var Username = document.getElementById("username").value;
-	document.getElementById("User").innerHTML = "Loaded: " + Username;
+	document.getElementById("User").innerHTML = "";
+	document.getElementById("UserName").innerHTML = "Loaded: " + Username;
 	
 }
 
 function loadCharacter(){
-	document.getElementById("FormSpot").innerHTML = "<form id='LoadCharacter' onsubmit='return false;'>\n\tCharacter Name:\n\t<input type='text' id='username'></input>\n\t<input type='submit' onclick='loadCharacterIn()'></input>\n\t</form>";
+	document.getElementById("FormSpot").innerHTML = "<form id='LoadCharacter' onsubmit='return false;'>\n\tCharacter Name:\n\t<input type='text' id='username'></input>\n\t<input type='button' onclick='loadCharacterIn()' value='Load'></input>\n\t</form>";
 }
 
 function openForm() {

@@ -14,7 +14,7 @@
 
 <body>
 	
-	<h1>QuestLog</h1>
+	<h1 class='Title'>QuestLog</h1>
 	
 	<div id = "User">
 	<button type="button" onclick="createCharacter()" id="CreateCharacter">Create New Character</button>
@@ -24,16 +24,10 @@
 	
 	<button type="button" onclick="openForm()" id="OpenForm">Create New Quest</button>
 	
-	<?php
-		echo "Hello World!";
-		echo "Hello World!";
-		echo "Hello World!";
-	?>
-	
 	<div class="Form-popup" id="myForm">
 		<form id = "CreateQuestContainer" class="CreateQuestContainer">
 			
-			<h1> New Quest </h1>
+			<p class='Title'> New Quest </p>
 			<label for="description"><b>Quest Description</b></label>
 			<input type="text" id="description"></input>
 			<div id='Tasks'>
@@ -62,9 +56,11 @@
 		</form>
 	</div>
 	
-	<h2>Quests</h2>
+	<div id='Scroll'>
+	<h2>Active Quests</h2>
 	<ul id="QuestList">
 	</ul>
+	</div>
 	
 
 

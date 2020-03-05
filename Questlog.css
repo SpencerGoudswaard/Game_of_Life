@@ -1,22 +1,31 @@
 body {
-	background-image: url("ScrollTexture.jpg");
+	background-image: url("AsphaltTexture.jpg");
 	color: rgb(40, 40, 40);
 	font-weight: bold;
 	-webkit-text-stroke: 0.5px rgba(0,0,0, 0.8);
 }
 
 h1{
-	font-family: 'Tangerine', serif;
-	font-size: 48px;
-	color: white;
-	text-shadow: 2px 2px black;
-	-webkit-text-stroke: 0px ;	
+	position: fixed;
+	top: 0;
+	left: 50px;
 }
 
 h2{
 	font-family: 'Tangerine', serif;
 	font-size: 36px;
 	text-decoration: underline;
+	color: white;
+	text-shadow: 2px 2px black;
+	-webkit-text-stroke: 0px;
+	position: relative;
+	left: 260px;
+	bottom: 20px;
+}
+
+.Title{
+	font-family: 'Tangerine', serif;
+	font-size: 48px;
 	color: white;
 	text-shadow: 2px 2px black;
 	-webkit-text-stroke: 0px ;	
@@ -28,6 +37,26 @@ h2{
 	color: white;
 	text-shadow: 1px 1px black;
 	-webkit-text-stroke: 0px ;	
+	position: fixed;
+	right: 28px;
+	top: 0px;
+}
+
+#UserName{
+	font-family: 'Tangerine', serif;
+	font-size: 24px;
+	color: white;
+	text-shadow: 1px 1px black;
+	-webkit-text-stroke: 0px ;	
+	position: fixed;
+	right: 50px;
+	top: 30px;
+}
+
+#FormSpot{
+	position: fixed;
+	right: 30px;
+	top: 30px;
 }
 
 .Experiences{
@@ -37,7 +66,7 @@ h2{
 .CreateQuestContainer {
   max-width: 300px;
   padding: 10px;
-  background-color: grey;
+  background-image: url("SaltRockTexture.jpg");
 }
 
 .Form-popup {
@@ -50,7 +79,7 @@ h2{
 }
 
 #OpenForm {
-  background-color: #555;
+  background-image: url("RockTexture.jpg");
   color: white;
   padding: 16px 20px;
   border: none;
@@ -78,9 +107,20 @@ h2{
 	font-size: 24px;
 }
 
+#QuestList {
+	position: relative;
+	bottom: 50px;
+}
+
+#Scroll {
+	position: fixed;
+	top: 90px;
+	left: 50px;
+	right: 50px;
+	background-image: url("ScrollTexture.jpg");
+}
+
 .Quest {
-		border-style: solid;
-		border-color: rgba(139, 69, 19, 0.8);
 }
 
 .CompleteQuest {
