@@ -53,7 +53,7 @@ function createQuest(){
 	
 	/* Ends the task list and adds the 'complete quest' button */
 	var currentQuest = document.getElementById("Quest"+ numQuests).innerHTML;
-	document.getElementById("Quest"+ numQuests).innerHTML = currentQuest + "</ul><button type='button' class='CompleteQuest' id='CompleteQuest"+numQuests+"' onclick='Quests[numQuests-1].completeQuest()'>Complete Quest</button>\n";
+	document.getElementById("Quest"+ numQuests).innerHTML = currentQuest + "</ul><button type='button' class='CompleteQuest' id='CompleteQuest"+numQuests+"' onclick='Quests["+(numQuests-1)+"].completeQuest()'>Complete Quest</button>\n";
 	/* -------------------------------------------------- */
 	
 	/* Prints Experience Rewards to the QuestLog */
@@ -99,7 +99,7 @@ function Quest(description, questNum, taskList, FitExp, ConExp, WisExp, IntExp, 
 	this.completeQuest = function(){
 		this.isComplete = true;
 		document.getElementById("Quest" + this.questNum).style.color = "rgba(40, 40, 40, 0.3)";
-		document.getElementById("CompleteQuest" + this.questNum).innerHTML = "Completed!" + this.questNum + this.description;
+		document.getElementById("CompleteQuest" + this.questNum).innerHTML = "Completed!";
 		document.getElementById("CompleteQuest" + this.questNum).style.background = "rgba(40, 40, 40, 0)";
 		document.getElementById("CompleteQuest" + this.questNum).style.borderColor = "rgba(40, 40, 40, 0)";
 	}
@@ -123,28 +123,33 @@ function addTask(){
 
 
 function createCharacter(){
-	document.getElementById("FormSpot").innerHTML = "<form id='CreateCharacter' onsubmit='return false;'>\n\tCharacter Name:\n\t<input type='text' id='username'></input>\n\t<input type='submit' onclick='newCharacter()'></input>\n\t</form>";
+	document.getElementById("FormSpot").innerHTML = "<form id='CreateCharacter' onsubmit='return false;'>\n\tCharacter Name:\n\t<input type='text' id='username'></input>\n\t<input type='button' onclick='newCharacter()' value = 'Create'></input>\n\t</form>";
 }
 
 function newCharacter(){
 	var Username = document.getElementById("username").value;
-	document.getElementById("User").innerHTML = Username;
+	document.getElementById("User").innerHTML = "";
+	document.getElementById("UserName").innerHTML = Username;
 }
 
 function loadCharacterIn(){
 	var Username = document.getElementById("username").value;
-	document.getElementById("User").innerHTML = "Loaded: " + Username;
+	document.getElementById("User").innerHTML = "";
+	document.getElementById("UserName").innerHTML = "Loaded: " + Username;
 	
 }
 
 function loadCharacter(){
-	document.getElementById("FormSpot").innerHTML = "<form id='LoadCharacter' onsubmit='return false;'>\n\tCharacter Name:\n\t<input type='text' id='username'></input>\n\t<input type='submit' onclick='loadCharacterIn()'></input>\n\t</form>";
+	document.getElementById("FormSpot").innerHTML = "<form id='LoadCharacter' onsubmit='return false;'>\n\tCharacter Name:\n\t<input type='text' id='username'></input>\n\t<input type='button' onclick='loadCharacterIn()' value='Load'></input>\n\t</form>";
 }
 
 function openForm() {
-  document.getElementById("myForm").style.display = "block";
+	document.getElementById("myForm").style.display = "block";
 }
 
 function closeForm() {
-  document.getElementById("myForm").style.display = "none";
+    document.getElementById("myForm").style.display = "none";
+    document.getElementById("CreateQuestContainer").reset();
+	var currentTask = document.getElementById("Tasks").innerHTML = "<div id='break0'></div>";
+	taskNum = 0;
 }

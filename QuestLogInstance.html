@@ -6,29 +6,47 @@
 <script src="./QuestLogInstance_files/Questlog.js.download"></script>
 <link rel="stylesheet" href="./QuestLogInstance_files/css">
 
+<!-- Connecting to MySQL Server -->
+<!--?php
+$servername = "localhost";
+$username = "Spencer";
+
+$conn = new mysql($servername, $username);
+
+if ($conn == connect_error) {
+    die("Connection failed: " . $conn == connect_error);
+}
+echo "Connected successfully";
+?-->
+
+
 
 </head>
 
 
 <body>
 	
-	<h1>QuestLog</h1>
+	<h1 class="Title">QuestLog</h1>
 	
 	<div id="User">
 	<button type="button" onclick="createCharacter()" id="CreateCharacter">Create New Character</button>
 	<button type="button" onclick="loadCharacter()" id="LoadCharacter">Load Character</button>
 	<p id="FormSpot"></p>
 	</div>
+	<div id="UserName">
+	</div>
 	
 	<button type="button" onclick="openForm()" id="OpenForm">Create New Quest</button>
 	
-	<div class="Form-popup" id="myForm" style="display: none;">
+	<div class="Form-popup" id="myForm">
 		<form id="CreateQuestContainer" class="CreateQuestContainer">
 			
-			<h1> New Quest </h1>
+			<p class="Title"> New Quest </p>
 			<label for="description"><b>Quest Description</b></label>
 			<input type="text" id="description">
-			<div id="Tasks"><div id="break0"></div></div>
+			<div id="Tasks">
+			<div id="break0"></div>
+			</div>
 			<button type="button" onclick="addTask()" id="AddTask">Add Task</button>
 			<br>
 			Rewards <br>
@@ -52,17 +70,11 @@
 		</form>
 	</div>
 	
+	<div id="Scroll">
+	<h2>Active Quests</h2>
 	<ul id="QuestList">
-	<br><li class="Quest" id="Quest1">Test 1
-<ul class="TaskList" id="TaskList1">
-</ul><button type="button" class="CompleteQuest" id="CompleteQuest1" onclick="Quests[numQuests-1].completeQuest()">Complete Quest</button>
-</li><br><li class="Quest" id="Quest2">Test 2
-<ul class="TaskList" id="TaskList2">
-</ul><button type="button" class="CompleteQuest" id="CompleteQuest2" onclick="Quests[numQuests-1].completeQuest()">Complete Quest</button>
-</li><br><li class="Quest" id="Quest3" style="color: rgba(40, 40, 40, 0.3);">Test 3
-<ul class="TaskList" id="TaskList3">
-</ul><button type="button" class="CompleteQuest" id="CompleteQuest3" onclick="Quests[numQuests-1].completeQuest()" style="background: rgba(40, 40, 40, 0); border-color: rgba(40, 40, 40, 0);">Completed!3Test 3</button>
-</li></ul>
+	</ul>
+	</div>
 	
 
 
